@@ -44,7 +44,7 @@ class MoonrakerLinePrinter(LinePrinter):
         replyBuffer = reply.readAll()
 
         # TODO: Add error handling on conversion and parsing
-        self.received.emit(str(replyBuffer, 'ascii'))
+        self.received.emit(str(replyBuffer, 'utf-8', errors='replace'))
 
         reply.deleteLater()
         self.replySet.remove(reply)

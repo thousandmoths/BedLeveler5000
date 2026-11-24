@@ -103,7 +103,7 @@ class SerialConnection(QtCore.QObject):
             # Extract line
             try:
                 lineEndIndex = index - 1 if index > 0 and self.readBuffer[index - 1] == b'\r' else index
-                line = str(self.readBuffer[:lineEndIndex], 'ascii') # TODO: Verify the correct encoding
+                line = str(self.readBuffer[:lineEndIndex], 'utf-8', errors='replace') # Firmware may send non-ASCII (e.g. UTF-8 punctuation)
             except UnicodeDecodeError:
                 self.logger.warn(f'Detected bad bytes: {self.readBuffer.data().hex()}.')
                 self.readBuffer.clear()

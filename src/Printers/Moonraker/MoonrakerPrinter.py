@@ -197,7 +197,7 @@ class MoonrakerMachine(QtCore.QObject):
         else:
             # Parse reply JSON
             try:
-                replyJson = json.loads(str(replyBuffer, 'ascii'))
+                replyJson = json.loads(str(replyBuffer, 'utf-8', errors='replace'))
                 self.logger.debug(f'Received: {replyJson}')
 
                 # Check for protocol error
