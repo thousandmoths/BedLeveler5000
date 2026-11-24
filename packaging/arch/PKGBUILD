@@ -1,0 +1,52 @@
+# Maintainer: thousandmoths
+# Native Arch/CachyOS package for Bed Leveler 5000 (fork with Arch fixes).
+# Build and install:  makepkg -si
+pkgbase=bedleveler5000
+pkgname=bedleveler5000-git
+pkgver=r0
+pkgrel=1
+pkgdesc='Paper-free manual FDM bed leveling (Bed Leveler 5000, Printer Info Wizard, Inspector G-code)'
+arch=(any)
+url='https://github.com/thousandmoths/BedLeveler5000'
+license=(GPL-3.0-only)
+depends=(python pyside6 qt6-datavis3d python-pillow python-wrapt python-pyserial)
+makedepends=(git)
+provides=(bedleveler5000)
+conflicts=(bedleveler5000)
+source=("$pkgbase::git+${BEDLEVELER_SRC:-https://github.com/thousandmoths/BedLeveler5000.git}#branch=${BEDLEVELER_BRANCH:-fix-arch-cachyos}")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "$pkgbase"
+    printf 'r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    cd "$pkgbase"
+    local share="$pkgdir/usr/share/$pkgbase"
+
+    # The app locates Printers/ and Resources/ relative to src/, so keep the layout.
+    install -d "$share"
+    cp -r src Printers Resources "$share/"
+    find "$share" -name Tests -type d -prune -exec rm -rf {} +
+    find "$share" -name __pycache__ -type d -prune -exec rm -rf {} +
+    rm -f "$share/Resources/Icon.xcf"
+
+    local app launcher
+    for app in BedLeveler5000 PrinterInfoWizard InspectorG-code PrinterTester; do
+        launcher=$(echo "$app" | tr 'A-Z' 'a-z')
+        install -Dm755 /dev/stdin "$pkgdir/usr/bin/$launcher" <<LAUNCHER
+#!/bin/sh
+exec python /usr/share/$pkgbase/src/$app.py "\$@"
+LAUNCHER
+        install -Dm644 "packaging/arch/$launcher.desktop" "$pkgdir/usr/share/applications/$launcher.desktop"
+    done
+
+    local icons="$pkgdir/usr/share/icons/hicolor/128x128/apps"
+    install -Dm644 Resources/Icon-128x128.png "$icons/bedleveler5000.png"
+    install -Dm644 Resources/PrinterInfoWizard-128x128.png "$icons/printerinfowizard.png"
+    install -Dm644 Resources/InspectorG-code_Icon_128x128.png "$icons/inspectorg-code.png"
+    install -Dm644 Resources/PrinterTester-128x128.png "$icons/printertester.png"
+
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
