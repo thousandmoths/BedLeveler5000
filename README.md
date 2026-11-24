@@ -61,7 +61,17 @@ to use **Bed Leveler 5000**.
 3) Extract the downloaded archive
 4) Launch **BedLeveler5000**, **PrinterInfoWizard**, or **InspectorG-code**
 
-### Arch Linux / CachyOS / other distros (run from source)
+### Arch Linux / CachyOS (native package)
+```
+git clone -b fix-arch-cachyos https://github.com/thousandmoths/BedLeveler5000.git
+cd BedLeveler5000/packaging/arch
+makepkg -si
+```
+This installs `bedleveler5000`, `printerinfowizard`, `inspectorg-code` and `printertester` commands plus
+menu entries, using the system `pyside6` and `qt6-datavis3d`. Add yourself to the `uucp` group for serial access
+(`sudo usermod -a -G uucp $USER`, then re-login).
+
+### Other distros (run from source)
 The prebuilt release targets Ubuntu. On other distributions, run from source in a venv;
 the pinned PySide6 wheel bundles Qt Data Visualization, which Arch's system `pyside6`
 package lacks (it needs `qt6-datavis3d`, otherwise: `libQt6DataVisualization.so.6: cannot open shared object file`).
