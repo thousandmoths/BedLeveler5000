@@ -1,0 +1,64 @@
+{
+    "version": 3,
+    "displayName": "Neptune 3 Plus (Klipper)",
+    "connectionMode": "Moonraker",
+    "connection": {},
+    "screwType": "CW-M4",
+    "manualProbePoints": [{
+                              "name": "1",
+                              "fixed": false,
+                              "row": 2,
+                              "column": 0,
+                              "x": 37.5,
+                              "y": 32.5
+                          },
+                          {
+                              "name": "2",
+                              "fixed": false,
+                              "row": 1,
+                              "column": 0,
+                              "x": 37.5,
+                              "y": 165
+                          },
+                          {
+                              "name": "3",
+                              "fixed": false,
+                              "row": 0,
+                              "column": 0,
+                              "x": 37.5,
+                              "y": 292.5
+                          },
+                          {
+                              "name": "4",
+                              "fixed": false,
+                              "row": 0,
+                              "column": 2,
+                              "x": 292.5,
+                              "y": 292.5
+                          },
+                          {
+                              "name": "5",
+                              "fixed": false,
+                              "row": 1,
+                              "column": 2,
+                              "x": 292.5,
+                              "y": 165
+                          },
+                          {
+                              "name": "6",
+                              "fixed": false,
+                              "row": 2,
+                              "column": 2,
+                              "x": 292.5,
+                              "y": 32.5
+                          },
+                          {
+                              "name": "H",
+                              "fixed": true,
+                              "row": 1,
+                              "column": 1,
+                              "x": 193.5,
+                              "y": 143
+                          }
+                         ]
+}

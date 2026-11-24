@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Printer Tester
+Comment=Test printer support for Bed Leveler 5000
+Exec=printertester
+Icon=printertester
+Categories=Utility;Engineering;
+Terminal=false

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec python /usr/share/bedleveler5000/src/BedLeveler5000.py "$@"

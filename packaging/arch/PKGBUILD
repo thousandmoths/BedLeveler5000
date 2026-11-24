@@ -3,13 +3,13 @@
 # Build and install:  makepkg -si
 pkgbase=bedleveler5000
 pkgname=bedleveler5000-git
-pkgver=r0
+pkgver=r199.02b213e
 pkgrel=1
 pkgdesc='Paper-free manual FDM bed leveling (Bed Leveler 5000, Printer Info Wizard, Inspector G-code)'
 arch=(any)
 url='https://github.com/thousandmoths/BedLeveler5000'
 license=(GPL-3.0-only)
-depends=(python pyside6 qt6-datavis3d python-pillow python-wrapt python-pyserial)
+depends=(python pyside6 qt6-datavis3d qt6-serialport python-pillow python-wrapt)
 makedepends=(git)
 provides=(bedleveler5000)
 conflicts=(bedleveler5000)
