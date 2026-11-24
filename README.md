@@ -61,6 +61,19 @@ to use **Bed Leveler 5000**.
 3) Extract the downloaded archive
 4) Launch **BedLeveler5000**, **PrinterInfoWizard**, or **InspectorG-code**
 
+### Arch Linux / CachyOS / other distros (run from source)
+The prebuilt release targets Ubuntu. On other distributions, run from source in a venv;
+the pinned PySide6 wheel bundles Qt Data Visualization, which Arch's system `pyside6`
+package lacks (it needs `qt6-datavis3d`, otherwise: `libQt6DataVisualization.so.6: cannot open shared object file`).
+
+1) Give the current user permissions to use serial ports (`sudo usermod -a -G uucp $USER`, then re-login)
+2) Run
+   ```
+   ./run_from_source.sh                 # Bed Leveler 5000
+   ./run_from_source.sh PrinterInfoWizard
+   ./run_from_source.sh InspectorG-code
+   ```
+
 ### MacOS
 1) Give the current user permissions to use serial ports
    ```
