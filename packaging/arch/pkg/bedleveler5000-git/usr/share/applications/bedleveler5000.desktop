@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Bed Leveler 5000
-Comment=Paper-free manual FDM bed leveling
-Exec=bedleveler5000
-Icon=bedleveler5000
-Categories=Utility;Engineering;
-Terminal=false

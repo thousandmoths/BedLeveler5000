@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Inspector G-code
-Comment=Test and explore printer G-code commands
-Exec=inspectorg-code
-Icon=inspectorg-code
-Categories=Utility;Engineering;
-Terminal=false

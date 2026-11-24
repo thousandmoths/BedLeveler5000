@@ -1,2 +1,0 @@
-#!/bin/sh
-exec python /usr/share/bedleveler5000/src/PrinterTester.py "$@"

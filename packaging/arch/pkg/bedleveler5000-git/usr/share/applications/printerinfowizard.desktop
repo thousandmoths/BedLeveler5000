@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Printer Info Wizard
-Comment=Create printer definitions for Bed Leveler 5000
-Exec=printerinfowizard
-Icon=printerinfowizard
-Categories=Utility;Engineering;
-Terminal=false
