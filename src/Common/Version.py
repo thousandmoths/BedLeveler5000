@@ -44,7 +44,11 @@ def displayVersion():
     if version() is not None:
         return version()
     else:
-        return gitHash()
+        try:
+            return gitHash()
+        except IOError:
+            # Not a git checkout (e.g. a source zip/tarball): don't crash the app.
+            return 'unknown'
 
 if __name__ == "__main__":
     import argparse
